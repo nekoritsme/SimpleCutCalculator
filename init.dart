@@ -3,7 +3,7 @@ import 'logic.dart';
 
 void main() {
   print(
-      "Calculate product [1] Add a new product [2] Delete selected Product [3] Clear entire database [901]");
+      "Calculate product [1] Add a new product [2] Delete selected product [3] Clear entire database [901]");
   start(stdin.readLineSync()!);
 }
 
@@ -24,10 +24,10 @@ void start(String line) async {
       print("Type product: ");
       String product = stdin.readLineSync()!;
 
-      print("Type calories: ");
+      print("Type calories per 100g: ");
       double calories = double.parse(stdin.readLineSync()!);
 
-      print("Type protein: ");
+      print("Type protein per 100g: ");
       double protein = double.parse(stdin.readLineSync()!);
 
       SimpleCutCalculator.addproduct(product, calories, protein);
