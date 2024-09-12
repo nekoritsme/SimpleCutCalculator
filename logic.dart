@@ -48,16 +48,14 @@ class calculator {
     return "${this.productName}: ${this.calories / accurate_grams} calories ${this.protein / accurate_grams} protein";
   }
 
-  void addproduct() async {
+  static void addproduct(
+      String productName, double calories, double protein) async {
     List<dynamic> database = await getJsonDecode();
 
-    database.add({
-      "product": this.productName,
-      "calories": this.calories,
-      "protein": this.protein
-    });
+    database.add(
+        {"product": productName, "calories": calories, "protein": protein});
 
     writeData(database);
-    print("Product ${this.productName} was successfully added!");
+    print("Product ${productName} was successfully added!");
   }
 }

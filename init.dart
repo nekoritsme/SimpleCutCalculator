@@ -31,16 +31,24 @@ Map getInputs() {
 }
 
 void start(String line) async {
+  await calculator.showDatabase();
+  print("Choose product to calculate");
 
-
-  if (line == "2") {
+  if (line == "1") {
     final inputs = getInputs();
     calculator(
             productName: inputs["product"],
             calories: inputs["calories"],
             protein: inputs["protein"],
             grams: inputs["grams"])
-        .addproduct();
+        .calculate();
+  }
+
+  if (line == "2") {
+    final inputs = getInputs();
+
+    calculator.addproduct(
+        inputs["product"], inputs["calories"], inputs["protein"]);
   }
 
   if (line == "3") {
