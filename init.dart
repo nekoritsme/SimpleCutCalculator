@@ -8,25 +8,38 @@ void main() {
   start(stdin.readLineSync()!);
 }
 
+Map getInputs() {
+  print("Type product: ");
+  String product = stdin.readLineSync()!;
+
+  print("Type calories: ");
+  double calories = double.parse(stdin.readLineSync()!);
+
+  print("Type protein: ");
+  double protein = double.parse(stdin.readLineSync()!);
+
+  print("Type grams: ");
+  double grams = double.parse(stdin.readLineSync()!);
+
+  Map<String, dynamic> inputs = {
+    "product": product,
+    "calories": calories,
+    "protein": protein,
+    "grams": grams
+  };
+  return inputs;
+}
+
 void start(String line) async {
+
+
   if (line == "2") {
-    print("Type product: ");
-    String product = stdin.readLineSync()!;
-
-    print("Type calories: ");
-    double calories = double.parse(stdin.readLineSync()!);
-
-    print("Type protein: ");
-    double protein = double.parse(stdin.readLineSync()!);
-
-    print("Type grams: ");
-    double grams = double.parse(stdin.readLineSync()!);
-
+    final inputs = getInputs();
     calculator(
-            productName: product,
-            calories: calories,
-            protein: protein,
-            grams: grams)
+            productName: inputs["product"],
+            calories: inputs["calories"],
+            protein: inputs["protein"],
+            grams: inputs["grams"])
         .addproduct();
   }
 
