@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-class calculator {
+class SimpleCutCalculator {
   static String filePath = './database.json';
   static Future<String> jsonString() async =>
       await File(filePath).readAsString();
