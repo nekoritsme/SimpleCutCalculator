@@ -39,9 +39,7 @@ class calculator {
   }
 
   void addproduct() async {
-    String filePath = './database.json';
     String jsonString = await File(filePath).readAsString();
-
     List<dynamic> database = jsonDecode(jsonString);
 
     database.add({
