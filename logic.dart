@@ -20,7 +20,7 @@ class SimpleCutCalculator {
 
   static clearDatabase() async {
     writeData([]);
-    print("Database was successfully cleaned");
+    print("Database was successfully cleared");
   }
 
   static Future deleteproduct(int index) async {

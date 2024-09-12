@@ -3,7 +3,7 @@ import 'logic.dart';
 
 void main() {
   print(
-      "Calculate product [1] Add a new product [2] Delete selected product [3] Clear entire database [901]");
+      "Calculate product [1] Add a new product [2] Delete selected product [3] Clear the entire database [901]");
   start(stdin.readLineSync()!);
 }
 
@@ -12,7 +12,7 @@ void start(String line) async {
     case "1":
       await SimpleCutCalculator.showDatabase();
 
-      print("Choose number to calculate: ");
+      print("Choose the number to calculate: ");
       int index = int.parse(stdin.readLineSync()!);
 
       print("Type grams: ");
@@ -35,7 +35,7 @@ void start(String line) async {
     case "3":
       await SimpleCutCalculator.showDatabase();
 
-      print("Choose number to delete product");
+      print("Choose the number to delete a product");
       int index = await int.parse(stdin.readLineSync()!);
       await SimpleCutCalculator.deleteproduct(index);
 
