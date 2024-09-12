@@ -27,6 +27,7 @@ class calculator {
     }
   }
 
+
   String calculate() {
     final accurate_grams = 100 / this.grams;
     return "${this.productName}: ${this.calories / accurate_grams} calories ${this.protein / accurate_grams} protein";

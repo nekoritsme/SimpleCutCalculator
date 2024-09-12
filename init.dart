@@ -13,8 +13,19 @@ void main() {
 }
 
 void processLine(String line) {
-  var object =
-      calculator(productName: "eqwe", calories: 120, protein: 12, grams: 12);
-  object.addproduct();
-  calculator.showDatabase();
+  if (line == "1") {
+
+  }
+
+  if (line == "2") {
+
+  }
+
+  if (line == "3") {
+
+  }
+
+  if (line == "4") {
+    
+  }
 }
