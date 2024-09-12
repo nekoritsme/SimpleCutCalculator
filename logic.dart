@@ -14,10 +14,15 @@ class calculator {
   double grams;
 
   static String filePath = './database.json';
+  static Future<String> jsonString() async =>
+      await File(filePath).readAsString();
+
+  static Future writeData(dynamic contenttosave) async =>
+      await File(filePath).writeAsString(jsonEncode(contenttosave));
+  static dynamic getJsonDecode() async => jsonDecode(await jsonString());
 
   static void showDatabase() async {
-    String jsonString = await File(filePath).readAsString();
-    List<dynamic> database = jsonDecode(jsonString);
+    List<dynamic> database = await getJsonDecode();
 
     if (database.isEmpty) {
       throw FormatException("Database shouldnt be empty.");
@@ -29,7 +34,7 @@ class calculator {
   }
 
   static void clearDatabase() async {
-    await File(filePath).writeAsString(jsonEncode([]));
+    writeData([]);
     print("Database was successfully cleaned");
   }
 
@@ -39,8 +44,7 @@ class calculator {
   }
 
   void addproduct() async {
-    String jsonString = await File(filePath).readAsString();
-    List<dynamic> database = jsonDecode(jsonString);
+    List<dynamic> database = await getJsonDecode();
 
     database.add({
       "product": this.productName,
@@ -48,7 +52,7 @@ class calculator {
       "protein": this.protein
     });
 
-    await File(filePath).writeAsString(jsonEncode(database));
+    writeData(database);
     print("Product ${this.productName} was successfully added!");
   }
 }

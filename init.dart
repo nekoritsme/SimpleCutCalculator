@@ -29,7 +29,9 @@ void start(String line) async {
         .addproduct();
   }
 
-  if (line == "2") {}
+  if (line == "2") {
+    calculator.showDatabase();
+  }
 
   if (line == "3") {}
 
