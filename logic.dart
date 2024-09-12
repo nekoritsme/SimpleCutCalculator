@@ -2,17 +2,6 @@ import 'dart:convert';
 import 'dart:io';
 
 class calculator {
-  calculator(
-      {required this.productName,
-      required this.calories,
-      required this.protein,
-      required this.grams});
-
-  String productName;
-  double calories;
-  double protein;
-  double grams;
-
   static String filePath = './database.json';
   static Future<String> jsonString() async =>
       await File(filePath).readAsString();
@@ -29,7 +18,7 @@ class calculator {
     }
   }
 
-  static void clearDatabase() async {
+  static clearDatabase() async {
     writeData([]);
     print("Database was successfully cleaned");
   }
