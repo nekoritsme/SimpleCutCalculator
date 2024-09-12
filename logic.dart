@@ -46,8 +46,7 @@ class calculator {
   static void calculate(int index, double grams) async {
     List<dynamic> database = await getJsonDecode();
     final db = database[index];
-
-    final accurate_grams = 100 / db["grams"];
+    final accurate_grams = 100 / grams;
     print(
         "${db["product"]}: ${db["calories"] / accurate_grams} calories ${db["protein"] / accurate_grams} protein");
   }

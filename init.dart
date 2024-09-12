@@ -1,4 +1,3 @@
-import 'dart:cli';
 import 'dart:io';
 import 'logic.dart';
 
@@ -17,10 +16,12 @@ void start(String line) async {
 
     print("Type grams: ");
     double grams = double.parse(stdin.readLineSync()!);
+
+    calculator.calculate(index, grams);
   }
 
   if (line == "2") {
-      print("Type product: ");
+    print("Type product: ");
     String product = stdin.readLineSync()!;
 
     print("Type calories: ");
@@ -29,8 +30,7 @@ void start(String line) async {
     print("Type protein: ");
     double protein = double.parse(stdin.readLineSync()!);
 
-    calculator.addproduct(
-        product, calories, protein);
+    calculator.addproduct(product, calories, protein);
   }
 
   if (line == "3") {
