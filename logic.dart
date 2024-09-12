@@ -21,12 +21,8 @@ class calculator {
       await File(filePath).writeAsString(jsonEncode(contenttosave));
   static dynamic getJsonDecode() async => jsonDecode(await jsonString());
 
-  static void showDatabase() async {
+  static Future showDatabase() async {
     List<dynamic> database = await getJsonDecode();
-
-    if (database.isEmpty) {
-      throw FormatException("Database shouldnt be empty.");
-    }
 
     for (var i = 0; i < database.length; i++) {
       print("[$i] ${database[i]["product"]}");
@@ -36,6 +32,15 @@ class calculator {
   static void clearDatabase() async {
     writeData([]);
     print("Database was successfully cleaned");
+  }
+
+  static Future deleteproduct(int index) async {
+    List<dynamic> database = await getJsonDecode();
+
+    database.removeAt(index);
+
+    writeData(database);
+    print("Successfully deleted");
   }
 
   String calculate() {

@@ -1,3 +1,4 @@
+import 'dart:cli';
 import 'dart:io';
 import 'logic.dart';
 
@@ -8,7 +9,7 @@ void main() {
 }
 
 void start(String line) async {
-  if (line == "1") {
+  if (line == "2") {
     print("Type product: ");
     String product = stdin.readLineSync()!;
 
@@ -29,11 +30,16 @@ void start(String line) async {
         .addproduct();
   }
 
-  if (line == "2") {
+  if (line == "3") {
+    await calculator.showDatabase();
+
+    print("Choose number to delete product");
+    int index = await int.parse(stdin.readLineSync()!);
+    await calculator.deleteproduct(index);
+
+    print("Updated list");
     calculator.showDatabase();
   }
-
-  if (line == "3") {}
 
   if (line == "901") {
     calculator.clearDatabase();
