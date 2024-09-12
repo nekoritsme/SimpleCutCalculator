@@ -43,9 +43,13 @@ class calculator {
     print("Successfully deleted");
   }
 
-  String calculate() {
-    final accurate_grams = 100 / this.grams;
-    return "${this.productName}: ${this.calories / accurate_grams} calories ${this.protein / accurate_grams} protein";
+  static void calculate(int index, double grams) async {
+    List<dynamic> database = await getJsonDecode();
+    final db = database[index];
+
+    final accurate_grams = 100 / db["grams"];
+    print(
+        "${db["product"]}: ${db["calories"] / accurate_grams} calories ${db["protein"] / accurate_grams} protein");
   }
 
   static void addproduct(
