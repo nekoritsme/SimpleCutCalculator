@@ -13,8 +13,9 @@ class calculator {
   double protein;
   double grams;
 
+  static String filePath = './database.json';
+
   static void showDatabase() async {
-    String filePath = './database.json';
     String jsonString = await File(filePath).readAsString();
     List<dynamic> database = jsonDecode(jsonString);
 
@@ -27,6 +28,10 @@ class calculator {
     }
   }
 
+  static void clearDatabase() async {
+    await File(filePath).writeAsString(jsonEncode("[]"));
+    print("Database was successfully cleaned");
+  }
 
   String calculate() {
     final accurate_grams = 100 / this.grams;
