@@ -29,7 +29,7 @@ class calculator {
   }
 
   static void clearDatabase() async {
-    await File(filePath).writeAsString(jsonEncode("[]"));
+    await File(filePath).writeAsString(jsonEncode([]));
     print("Database was successfully cleaned");
   }
 
